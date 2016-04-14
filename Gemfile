@@ -9,7 +9,8 @@ source 'https://rubygems.org' do
   gem 'sass-rails'
   gem 'slim-rails'
   gem 'uglifier'
-  gem 'web-console', '~> 2.0', gruop :development
+
+  gem 'web-console', '~> 2.0', group: :development
   group :doc do
     gem 'yard'
   end
