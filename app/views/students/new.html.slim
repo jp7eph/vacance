@@ -1,0 +1,10 @@
+h1  学生を追加
+= form_for(@student) do |f|
+  p 学生氏名
+  = f.label :name
+  = f.text_field :name
+  p 所持資格
+  = f.label :license
+  = f.text_area :license
+
+  = f.submit
