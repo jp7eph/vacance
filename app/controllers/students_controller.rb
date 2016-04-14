@@ -6,8 +6,6 @@ class StudentsController < ApplicationController
     binding.pry
   end
 
-  end
-
   def new
     @student = Student.new
   end
@@ -43,5 +41,6 @@ class StudentsController < ApplicationController
       @places.each do |key, value|
         @student_hash["#{key.id}"] = @students.where("place_id = ?", "#{key.id}")
       end
+    end
   end
 end
