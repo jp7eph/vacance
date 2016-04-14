@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
     @students = Student.all
     @places = Place.all
     find_student_with_place
-    binding.pry
+    #binding.pry
   end
 
   def new

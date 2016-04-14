@@ -17,7 +17,14 @@ table
       th Students
 
   tbody
-    - @places.each do |place|
+    - @place_hash.each do |place_id,place|
       tr
-        td = place.name
-        td =
+        td = place[0].name
+        td
+          |
+          - @student_hash["#{place_id}"].each do |student|
+            = p student.name
+
+
+br
+
