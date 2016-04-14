@@ -1,0 +1,7 @@
+h1  場所を追加
+= form_for(@place) do |f|
+  p 場所名
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit

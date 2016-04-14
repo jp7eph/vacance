@@ -15,14 +15,13 @@ ActiveRecord::Schema.define(version: 20160414034901) do
 
   create_table "places", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "place_id",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "license",    limit: 4
+    t.string   "license",    limit: 255
     t.integer  "place_id",   limit: 4
     t.integer  "band_id",    limit: 4
     t.datetime "created_at",             null: false

@@ -6,3 +6,18 @@
     |  所持資格
     = p "#{student.license}アマ"
 
+a href = "/students/new" 学生追加
+a href = "/places/new" 場所追加
+br
+
+table
+  thead
+    tr
+      th Place
+      th Students
+
+  tbody
+    - @places.each do |place|
+      tr
+        td = place.name
+        td =
