@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    if Student.find(params[:student_id])
+    if Student.find_by(id: params[:student_id])
       update
     else
       @student = Student.new(student_params)
