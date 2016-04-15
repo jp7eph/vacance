@@ -28,7 +28,7 @@ source 'https://rubygems.org' do
     gem 'poltergeist'
     gem 'pry-byebug'
     gem 'pry-rails'
-    gem 'web-console', '~> 2.0'
+    #gem 'web-console', '~> 2.0'
     gem 'rubocop', require: false
   end
 
