@@ -11,7 +11,7 @@ source 'https://rubygems.org' do
   gem 'uglifier'
   gem 'turbolinks'
 
-  gem 'web-console', '~> 2.0', group: :development
+  #gem 'web-console', '~> 2.0', group: :development
   group :doc do
     gem 'yard'
   end
@@ -28,6 +28,7 @@ source 'https://rubygems.org' do
     gem 'poltergeist'
     gem 'pry-byebug'
     gem 'pry-rails'
+    gem 'web-console', '~> 2.0'
     gem 'rubocop', require: false
   end
 
