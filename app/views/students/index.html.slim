@@ -10,7 +10,12 @@ a href = "/students/new" 学生追加
 a href = "/places/new" 場所追加
 br
 
-table
+= form_tag(action="/students#update", :method => :PACTH)
+  = select_tag :student_id, options_for_select(@students_map)
+  = select_tag :place_id, options_for_select(@places_map)
+  = submit_tag "移動"
+
+table border = "1"
   thead
     tr
       th Place

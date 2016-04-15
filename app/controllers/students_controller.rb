@@ -1,9 +1,8 @@
 class StudentsController < ApplicationController
+  before_action :set_students
+
   def index
-    @students = Student.all
-    @places = Place.all
     find_student_with_place
-    #binding.pry
   end
 
   def new
@@ -11,25 +10,40 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
-    @student.place_id = 0
-    @student.band_id = 0
-
-    if @student.save
-      redirect_to student_path(@student)
+    if Student.find(params[:student_id])
+      update
     else
-      render :new
+      @student = Student.new(student_params)
+      @student.place_id = 0
+      @student.band_id = 0
+      if @student.save
+        redirect_to student_path(@student)
+      else
+        render :new
+      end
     end
   end
 
   def show
+    @students = Student.all
     @student = Student.find(params[:id])
+  end
+
+  def update
+    student = Student.find(params[:student_id])
+    if student.place_id != params[:place_id]
+      if student.update_attribute(:place_id, params[:place_id])
+        render action: :index
+      else
+        render :index
+      end
+    end
   end
 
   private
 
   def student_params
-    params.require(:student).permit(:name, :license,:place_id)
+    params.require(:student).permit(:id, :name, :license, :place_id)
   end
 
   def find_student_with_place
@@ -43,4 +57,13 @@ class StudentsController < ApplicationController
       end
     end
   end
+
+  def set_students
+    @students = Student.all
+    @places = Place.all
+    @students_map = Student.all.pluck(:name,:id)
+    @places_map = Place.all.pluck(:name, :id)
+    find_student_with_place
+  end
+
 end
