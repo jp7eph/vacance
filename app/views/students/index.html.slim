@@ -1,7 +1,7 @@
 
 = form_tag(action="/students#update", :method => :PACTH)
-  = select_tag :student_id, options_for_select(@students_map)
-  = select_tag :place_id, options_for_select(@places_map)
+  = select_tag :student_id, options_for_select(@students_map),multiple: true, class: "searchable"
+  = select_tag :place_id, options_for_select(@places_map),multiple: true, class: "searchable"
   = submit_tag "移動"
 
 table border = "1"

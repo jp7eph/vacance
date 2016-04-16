@@ -10,6 +10,8 @@ source 'https://rubygems.org' do
   gem 'slim-rails'
   gem 'uglifier'
   gem 'turbolinks'
+  gem "jquery-turbolinks"
+  gem "select2-rails"
 
   #gem 'web-console', '~> 2.0', group: :development
   group :doc do
