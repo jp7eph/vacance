@@ -31,7 +31,6 @@ class StudentsController < ApplicationController
 
   def update
     students = Student.find(params[:student_id])
-    binding.pry
     students.map do |student|
       student.update_attribute(:place_id, params[:place_id])
     end
