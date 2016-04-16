@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Vacance</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Vacance</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+  </head>
 
-<%= yield %>
+  <body>
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">Vacance</a>
+        </div>
+          <div class="nav navbar-nav">
+            <li><%= link_to '場所追加', '/places/new' %></li>
+            <li><%= link_to '学生追加', '/studens/new' %></li>
+          </div>
+      </div>
+    </nav>
 
-</body>
+    <%= yield %>
+
+    <footer>
+      <p>
+        Copyright Vacance 2016.
+      </p>
+    </footer>
+  </body>
 </html>
