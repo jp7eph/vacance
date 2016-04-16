@@ -30,14 +30,12 @@ class StudentsController < ApplicationController
   end
 
   def update
-    student = Student.find(params[:student_id])
-    if student.place_id != params[:place_id]
-      if student.update_attribute(:place_id, params[:place_id])
-        render action: :index
-      else
-        render :index
-      end
+    students = Student.find(params[:student_id])
+    binding.pry
+    students.map do |student|
+      student.update_attribute(:place_id, params[:place_id])
     end
+    render :index
   end
 
   private
