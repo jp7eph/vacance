@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :students
   resources :places
+  resources :bands
 end

@@ -20,5 +20,25 @@ div class="container"
              = p student.name+","
 
 
+= form_tag(action="/students#update", :method => :PACTH)
+  = select_tag :student_id, options_for_select(@students_map),multiple: true, class: "searchable"
+  = select_tag :band_id, options_for_select(@bands_map), class: "searchable"
+  = submit_tag "移動"
+div class="container"
+  table border = "1",　class="table table-striped"
+    thead
+      tr
+        th Bands
+        th Students
+
+    tbody
+      - @band_hash.each do |band_id,band|
+        tr
+          td = band[0].name
+          td
+           |
+           - @student_band_hash["#{band_id}"].each do |student|
+             = p student.name+","
+
 br
 

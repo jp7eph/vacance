@@ -1,0 +1,7 @@
+h1  バンドを追加
+= form_for(@band) do |f|
+  p 場所名
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit
