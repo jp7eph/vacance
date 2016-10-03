@@ -12,6 +12,7 @@ source 'https://rubygems.org' do
   gem 'turbolinks'
   gem "jquery-turbolinks"
   gem "select2-rails"
+  gem 'bootstrap-sass', '~> 3.3.6'
 
   #gem 'web-console', '~> 2.0', group: :development
   group :doc do
