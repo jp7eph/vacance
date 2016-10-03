@@ -33,7 +33,10 @@ class StudentsController < ApplicationController
   end
 
   def update
-
+    student = Student.find(params[:id])
+    student.update(student_params)
+    student.save
+    redirect_to action: :index
   end
 
   private
