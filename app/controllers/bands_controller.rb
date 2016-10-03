@@ -1,7 +1,7 @@
 class BandsController < ApplicationController
 
   def index
-    @bands = Band.all
+    @bands = Band.all.order(:id)
   end
 
   def new

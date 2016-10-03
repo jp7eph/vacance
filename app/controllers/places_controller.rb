@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all
+    @places = Place.all.order(:id)
   end
 
   def new
