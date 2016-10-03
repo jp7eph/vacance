@@ -23,25 +23,17 @@ class StudentsController < ApplicationController
     end
   end
 
+  def edit
+    @student = Student.find(params[:id])
+  end
+
   def show
     @students = Student.all
     @student = Student.find(params[:id])
   end
 
   def update
-    students = Student.find(params[:student_id])
-    if params[:place_id].present?
-      students.map do |student|
-        student.update_attribute(:place_id, params[:place_id])
-     end
-   end
-   if params[:band_id].present?
-      students = Student.find(params[:student_id])
-      students.map do |student|
-        student.update_attribute(:band_id, params[:band_id])
-      end
-    end
-    render :index
+
   end
 
   private

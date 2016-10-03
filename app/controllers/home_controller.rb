@@ -4,6 +4,22 @@ class HomeController < ApplicationController
     find_student_with_place
   end
 
+  def update
+    students = Student.find(params[:student_id])
+    if params[:place_id].present?
+      students.map do |student|
+        student.update_attribute(:place_id, params[:place_id])
+     end
+   end
+   if params[:band_id].present?
+      students = Student.find(params[:student_id])
+      students.map do |student|
+        student.update_attribute(:band_id, params[:band_id])
+      end
+    end
+    render :index
+  end
+
   private
 
   def find_student_with_place
