@@ -20,6 +20,11 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
 
+  def destroy
+    place = Place.find(params[:id])
+    place.delete
+    redirect_to action: :index
+  end
   def update
     place = Place.find(params[:id])
     place.update(place_params)

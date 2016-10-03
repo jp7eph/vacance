@@ -32,6 +32,12 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def destroy
+    student = Student.find(params[:id])
+    student.delete
+    redirect_to action: :index
+  end
+
   def update
     student = Student.find(params[:id])
     student.update(student_params)
