@@ -1,44 +1,24 @@
-
-= form_tag(action="/students#update", :method => :PACTH)
-  = select_tag :student_id, options_for_select(@students_map),multiple: true, class: "searchable"
-  = select_tag :place_id, options_for_select(@places_map), class: "searchable"
-  = submit_tag "移動"
-div class="container"
-  table.table border = "1",　class="table table-striped"
-    thead
+table.table
+  thead
+    tr
+      th
+        | id
+      th
+        | 生徒名
+      th
+        | 資格
+  tbody
+    - @students.each do |student|
       tr
-        th Place
-        th Students
+        td
+          = student.id
+        td
+          = student.name
+        td
+          = "#{student.license}アマ"
+        td
+          = link_to '編集', edit_student_path(student), class: 'btn btn-info'
+        td
+          = link_to '削除', student_path(student), :method => :delete, class: 'btn btn-danger'
 
-    tbody
-      - @place_hash.each do |place_id,place|
-        tr
-          td = place[0].name
-          td
-           |
-           - @student_hash["#{place_id}"].each do |student|
-             = p student.name+","
-
-
-= form_tag(action="/students#update", :method => :PACTH)
-  = select_tag :student_id, options_for_select(@students_map),multiple: true, class: "searchable"
-  = select_tag :band_id, options_for_select(@bands_map), class: "searchable"
-  = submit_tag "移動"
-div class="container"
-  table.table border = "1",　class="table table-striped"
-    thead
-      tr
-        th Bands
-        th Students
-
-    tbody
-      - @band_hash.each do |band_id,band|
-        tr
-          td = band[0].name
-          td
-           |
-           - @student_band_hash["#{band_id}"].each do |student|
-             = p student.name+","
-
-br
-
+= link_to '学生追加', new_student_path

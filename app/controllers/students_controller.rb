@@ -1,8 +1,7 @@
 class StudentsController < ApplicationController
-  before_action :set_students
 
   def index
-    find_student_with_place
+    @students = Student.all
   end
 
   def new

@@ -1,4 +1,9 @@
 class BandsController < ApplicationController
+
+  def index
+    @bands = Band.all
+  end
+
   def new
     @band = Band.new
   end
@@ -10,6 +15,23 @@ class BandsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @band = Band.find(params[:id])
+  end
+
+  def update
+    band = Band.find(params[:id])
+    band.update(band_params)
+    band.save
+    redirect_to action: :index
+  end
+
+  def destroy
+    band = Band.find(params[:id])
+    band.delete
+    redirect_to action: :index
   end
 
   def show

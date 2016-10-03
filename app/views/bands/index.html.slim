@@ -1,1 +1,24 @@
-p places#index
+table.table
+  thead
+    tr
+      th
+        | id
+      th
+        | バンド名
+      th
+        | action
+      th
+        | action
+  tbody
+    - @bands.each do |band|
+      tr
+        td
+          = band.id
+        td
+          = band.name
+        td
+          = link_to '編集', edit_band_path(band), class: 'btn btn-info'
+        td
+          = link_to '削除', band_path(band), :method => :delete, class: 'btn btn-danger'
+
+= link_to 'バンド追加', new_band_path
