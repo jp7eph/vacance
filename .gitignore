@@ -181,3 +181,8 @@ sftp-config.json
 /.yardoc
 /doc
 
+### dotenv-rails ###
+.env
+
+/vender/bin/*
+/vender/bundle/*

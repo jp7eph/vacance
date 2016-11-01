@@ -1,4 +1,4 @@
-ruby '2.2.3'
+#ruby '2.2.3'
 
 source 'https://rubygems.org' do
   gem 'coffee-rails'
@@ -14,7 +14,12 @@ source 'https://rubygems.org' do
   gem "select2-rails"
   gem 'bootstrap-sass', '~> 3.3.6'
 
-  #gem 'web-console', '~> 2.0', group: :development
+#  gem 'web-console', '~> 2.0', group: :development
+
+  gem 'unicorn'
+  gem 'dotenv-rails'
+  gem 'therubyracer'
+
   group :doc do
     gem 'yard'
   end
@@ -31,7 +36,7 @@ source 'https://rubygems.org' do
     gem 'poltergeist'
     gem 'pry-byebug'
     gem 'pry-rails'
-    #gem 'web-console', '~> 2.0'
+#    gem 'web-console', '~> 2.0'
     gem 'rubocop', require: false
   end
 
@@ -43,8 +48,8 @@ source 'https://rubygems.org' do
   end
 
   group :production do
-    gem 'unicorn', '~> 4.9.0'
-    gem 'pg',             '0.17.1'
+#    gem 'unicorn', '~> 4.9.0'
+#    gem 'pg',             '0.17.1'
     gem 'rails_12factor', '0.0.2'
   end
 end
